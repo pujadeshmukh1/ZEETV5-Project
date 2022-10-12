@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watch movies here</title>
+    <link rel="stylesheet" href="./components/footer.css" />
+    <link rel="stylesheet" href="./components/navbar.css" />
+    <style>
+      * {
+        background-color: #0f0617;
+      }
+      #ss_container {
+        border: 1px solid;
+        width: 20%;
+        height: 400px;
+        margin: auto;
+        border-radius: 10px;
+      }
+      #ss_container > img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        /* margin-top: 100px; */
+      }
+      button {
+        width: 18%;
+        height: 40px;
+        background-color: #8230c6;
+        border-radius: 5px;
+        margin-left: -10px;
+      }
+      button:hover {
+        background-color: #460f73;
+      }
+      button > a {
+        width: 100%;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+      }
+
+      #sh_navbar > #sh_navbar > #sh_container1 > div > a {
+        font-size: 17px;
+        font-weight: bold;
+      }
+      /* #sh_navbar > #sh_navbar {
+        padding-bottom: 15px;
+      } */
+    </style>
+  </head>
+  <body>
+    <div id="sh_navbar"></div>
+    <div id="sh_result"></div>
+    <div id="sh_main">
+      <div id="ss_container"></div>
+      <div id="sh_footer"></div>
+    </div>
+  </body>
+</html>
+
+<script type="module">
+  let pic = JSON.parse(localStorage.getItem("movie"));
+  console.log(pic);
+  let cont = document.getElementById("ss_container");
+  function getPic() {
+    let img = document.createElement("img");
+    img.src = pic;
+
+    cont.append(img);
+  }
+  getPic();
+
+  import {
+    navbar,
+    getData,
+    appendData,
+    main,
+    debouncing,
+    id,
+    naam,
+    loggeduser,
+    logout,
+  } from "./components/navcom.js";
+  //   console.log(navbar());
+
+  // document.getElementById("sh_navbar").innerHTML = navbar();
+
+  let navContainer = document.getElementById("sh_navbar");
+  navContainer.innerHTML = navbar();
+
+  document.getElementById("search").addEventListener("input", debouncing);
+
+  document.getElementById("search").addEventListener("focus", () => {
+    document.getElementById("sh_main").setAttribute("class", "sh_blury");
+  });
+
+  document.getElementById("search").addEventListener("focusout", () => {
+    document.getElementById("sh_main").setAttribute("class", "");
+    window.location.reload();
+  });
+
+  //<--------Footer Importing and appending-------->
+
+  import footer from "./components/footer.js";
+  let footContainer = document.getElementById("sh_footer");
+  footContainer.innerHTML = footer();
+
+  //<----------Showing UserName and Logout Functionality------->
+  let login = localStorage.getItem("login") || "false";
+
+  if (login === "true") {
+    naam(login);
+  }
+
+  document.getElementById("login").addEventListener("click", (e) => {
+    e.preventDefault();
+    logout(login);
+  });
+</script>
