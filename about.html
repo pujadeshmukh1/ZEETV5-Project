@@ -52,10 +52,11 @@
       </div>
       <div id="sh_footer"></div>
     </div>
-    <!-- <div id="sh_footer"></div> -->
+    
   </body>
 </html>
 <script type="module">
+  
   //<---------Navbar importing and appending and background fading------->
 
   import {
@@ -70,9 +71,7 @@
     logout,
   } from "./components/navcom.js";
 
-  // console.log(footer);
-
-  // console.log(navbar);
+ 
 
   let navContainer = document.getElementById("sh_navbar");
   navContainer.innerHTML = navbar();
@@ -94,12 +93,13 @@
   let footContainer = document.getElementById("sh_footer");
   footContainer.innerHTML = footer();
 
-  //<----------Showing UserName and Logout Functionality------->
+  //<----------showing userName and logout Functionality------->
   let login = localStorage.getItem("login") || "false";
 
   if (login === "true") {
     naam(login);
   }
+
 
   document.getElementById("login").addEventListener("click", (e) => {
     e.preventDefault();

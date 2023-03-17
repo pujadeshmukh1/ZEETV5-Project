@@ -14,8 +14,22 @@ body {
 }
 
 
-/* ----LIVE NEWS----LIVE NEWS----LIVE NEWS----LIVE NEWS----LIVE NEWS----LIVE NEWS */
+/* ----===LIVE NEWS====----LIVE NEWS----LIVE NEWS----LIVE NEWS----LIVE NEWS----LIVE NEWS */
+.transfor>img {
+    width: 100%;
+    margin-bottom: 2rem;
+}
 
+.transfor {
+    margin-top: 4rem;
+}
+
+.transfor>p {
+    color: white;
+    font-size: 2rem;
+    font-family: NotoSansMedium, sans-serif;
+    margin-top: 1rem;
+}
 .carousel-cell {
     padding-left: 2rem;
     cursor: pointer;
@@ -34,18 +48,3 @@ body {
     padding-left: 4rem;
 }
 
-.transfor>img {
-    width: 100%;
-    margin-bottom: 2rem;
-}
-
-.transfor {
-    margin-top: 4rem;
-}
-
-.transfor>p {
-    color: white;
-    font-size: 2rem;
-    font-family: NotoSansMedium, sans-serif;
-    margin-top: 1rem;
-}
